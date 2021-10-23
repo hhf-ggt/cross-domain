@@ -51,7 +51,7 @@ $ npm run dev
       oDemo.innerHTML = data
     }
   </script>
-  <script src="http://127.0.0.1:7001/js?callbackName=myCallback"></script>
+  <script src="http://127.0.0.1:7001/jsonp?callbackName=myCallback"></script>
 </body>
 </html>
 ```
@@ -66,22 +66,22 @@ $ npm run dev
 
 5. 这样子我们在加载到这个js资源、并且执行此回调的时候就可以获取到资源
 
-6. src 地址部门是我们的egg起动的服务、默认是127.0.0.1:7001、然后路由是/js
+6. src 地址部门是我们的egg起动的服务、默认是127.0.0.1:7001、然后路由是/jsonp
 
 3、配置路径以及拼接数据给客户端
 
 ```javascript
-// app/router.js 中增加一个路有 /js
+// app/router.js 中增加一个路有 /jsonp
 'use strict';
 /**
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
   const { router, controller } = app
-  router.get('/js', controller.home.index)
+  router.get('/jsonp', controller.home.index)
 }
 
-// 在app/controller/home.js中获参数、拼接返回参数
+// 在app/controller/jsonp.js中获参数、拼接返回参数
 'use strict';
 
 const Controller = require('egg').Controller;

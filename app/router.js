@@ -5,5 +5,5 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/js', controller.home.index);
+  router.get('/jsonp', controller.jsonp.index);
 };
