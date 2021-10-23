@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="demo">
+    我是默认数据
+  </div>
+  <script>
+    let demo = document.getElementById('#demo')
+  </script>
+  <script>
+    function myCallback(data) {
+      let oDemo = document.getElementById('demo')
+      // 将后端返回的数据替换到我们的页面上
+      oDemo.innerHTML = data
+    }
+  </script>
+  <script src="http://127.0.0.1:7001/js?callbackName=myCallback"></script>
+</body>
+</html>
