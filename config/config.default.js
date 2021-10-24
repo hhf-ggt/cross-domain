@@ -23,6 +23,20 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // 测试cors 关闭掉csrf token验证
+  config.security = {
+    csrf: {
+      enable: false
+    },
+    domainWhiteList: ['localhost:3000']
+  };
+
+  config.cors = {
+    // origin: '*',
+    // credentials: true, // 不带cookies
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+  
   return {
     ...config,
     ...userConfig,

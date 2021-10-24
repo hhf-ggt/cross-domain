@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cros</title>
+  <!-- 通过cdn的形式去引入axios、来发送ajax请求、当然也可以自己创建xhrhttprequest -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="demo">
+    我是默认的cors文本内容
+  </div>
+  <div id="content"></div>
+  <button>获取服务端数据</button>
+<script>
+  let oContent = document.getElementById('#content')
+  let oBtn = document.getElementsByTagName('button')[0]
+  oBtn.onclick = function() {
+    axios({
+      method: 'post',
+      url: 'http://127.0.0.1:7001/cors',
+    }).then((data) => {
+      oContent.innerHTML = data
+    })
+  }
+</script>
+</body>
+</html>
